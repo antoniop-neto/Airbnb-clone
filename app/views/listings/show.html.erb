@@ -1,0 +1,7 @@
+<div class="container">
+  <p><%= link_to '<- Back', root_path %></p>
+  <h2><%= @listing.name %></h2> <p><%= link_to 'Book Now', new_listing_booking_path(@listing) %></p>
+  <% @listing.photos.each do |photo| %>
+    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
+</div>

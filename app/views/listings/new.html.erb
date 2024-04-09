@@ -1,0 +1,18 @@
+<div class="container">
+  <h1>Add your place here</h1>
+  <%= simple_form_for @listing do |f| %>
+    <ul>
+      <li style="list-style-type: none;">
+        <%= f.input :name %>
+        <%= f.input :location %>
+        <%= f.input :price, label: 'Price per night'%>
+        <%= f.input :guest, label: 'How many guests?' %>
+        <%= f.input :description, label: 'About this place' %>
+        <%= f.input :availability, as: :boolean, label: 'Is that available?' %>
+        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+      </li>
+    </ul>
+
+    <%= f.button :submit, 'Save' %>
+  <% end %>
+</div>

@@ -1,0 +1,12 @@
+<div class="container">
+  <%= simple_form_for([@listing, @booking]) do |f| %>
+    <ul>
+      <li style="list-style-type: none;">
+        <%= f.input :guest, label: 'How many guests? max: '+ @listing.guest.to_s %>
+        <%= f.input :start_date, label: 'When do you arrive?'%>
+        <%= f.input :end_date, label: 'When do you leave?' %>
+      </li>
+    </ul>
+    <%= f.button :submit, 'Book' %>
+  <% end %>
+</div>

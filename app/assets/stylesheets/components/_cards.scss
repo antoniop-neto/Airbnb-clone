@@ -1,0 +1,118 @@
+// Listing cards in the home page
+
+.container-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 24px;
+}
+
+.card-listing {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  height: 300px;
+}
+
+.card-listing>img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-listing h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+
+}
+
+.card-listing p {
+  font-size: 14px;
+  opacity: .7;
+  margin: 0;
+}
+
+.card-listing .card-listing-pricing {
+  align-self: flex-start;
+}
+
+.card-listing .card-listing-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .container-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .container-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .container-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .container-cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .container-cards {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+
+// Booking index cards
+
+.card-booking {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  margin: 16px;
+  border-radius: 16px;
+}
+
+.card-booking img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
+
+.card-booking h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-booking p {
+  font-size: 14px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-booking .card-booking-infos {
+  padding: 16px;
+}

@@ -1,7 +1,32 @@
 <div class="container">
-  <p><%= link_to '<- Back', root_path %></p>
-  <h2><%= @listing.name %></h2> <p><%= link_to 'Book Now', new_listing_booking_path(@listing) %></p>
-  <% @listing.photos.each do |photo| %>
-    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+  <h2><%= @listing.name %></h2>
+  <% if @listing.photos.attached? %>
+  <div class="photos-container">
+    <div class="big-photo">
+      <%= cl_image_tag @listing.photos[0].key %>
+    </div>
+    <div class="grid-photos">
+        <%= cl_image_tag @listing.photos[1].key, class: 'photos' %>
+        <%= cl_image_tag @listing.photos[5].key, class: 'photos', style: 'border-top-right-radius: 24px;'%>
+        <%= cl_image_tag @listing.photos[3].key, class: 'photos' %>
+        <%= cl_image_tag @listing.photos[4].key, class: 'photos', style: 'border-bottom-right-radius: 24px;'%>
+    </div>
+  </div>
   <% end %>
+  <div class="booking-infos">
+    <div class="booking-main-infos">
+      <ul>
+        <li><h3><%= @listing.location %></h3></li>
+        <li><p><%= @listing.guest %> guests</p></li>
+      </ul>
+    </div>
+    <div class="booking-price-info">
+      <h4>£<%= @listing.price %></h4>
+      <%= link_to "Reserve", new_listing_booking_path(@listing), class: "btn btn-flat" %>
+    </div>
+  </div>
+  <div class="booking-more-infos">
+      <h4>About this space</h4>
+      <p><%= @listing.description %></p>
+    </div>
 </div>

@@ -1,16 +1,20 @@
-<div class="container">
-  <h1>Listings</h1>
-  <div class="container">
-    <% @listings.each do |listing| %>
-      <% if listing.photos.attached? %>
-        <%= cl_image_tag listing.photos.sample.key, height: 300, width: 400, crop: :fill %>
+<div class="container-home">
+  <div class="container-cards">
+   <% @listings.each do |listing| %>
+    <%= link_to listing_path(listing), style: "text-decoration: none; color: black;" do %>
+    <div class="card-listing">
+        <% if listing.photos.attached? %>
+          <%= cl_image_tag listing.photos.sample.key, class: 'card-listing>img' %>
+        <% end %>
+      <div class="card-listing-infos">
+        <div>
+          <h2><%= listing.name[0,24] %></h2>
+          <p><%= listing.location %></p>
+        </div>
+        <h2 class="card-listing-pricing">£<%= listing.price %></h2>
+      </div>
+    </div>
       <% end %>
-    <ul>
-      <li><%= link_to listing.name, listing_path(listing) %></li>
-      <li>$<%= listing.price %></li>
-      <li><%= listing.location %></li>
-      <li>For: <%= listing.guest %> <%= listing.guest > 1 ? 'people' : 'person' %></li>
-    </ul>
     <% end %>
   </div>
 </div>
